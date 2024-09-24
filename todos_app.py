@@ -5,11 +5,12 @@ print("2. Lihat Tugas")
 print("3. Hapus Tugas")
 print("4. Keluar")
 
-try:
+while True:
+ try:
     user_input = int(input("Masukkan Pilihan : "))
-except ValueError:
+    break
+ except ValueError:
     print("Inputan harus berupa angka")
-    exit()
     
 if user_input == 1:
     print("1. Tambahkan Tugas")
@@ -21,6 +22,7 @@ elif user_input == 4:
     print("4. Keluar")
 else:
     print("Pilihan Tidak Ada")
+    exit()
 
 tugas = []
 nama = input("Masukkan Nama Anda : ")
