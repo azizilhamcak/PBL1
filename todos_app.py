@@ -1,5 +1,26 @@
 print("APLIKASI TO-DO LIST")
 
+print("1. Tambahkan Tugas")
+print("2. Lihat Tugas")
+print("3. Hapus Tugas")
+print("4. Keluar")
+
+try:
+    user_input = int(input("Masukkan Pilihan : "))
+except ValueError:
+    print("Inputan harus berupa angka")
+    exit()
+    
+if user_input == 1:
+    print("1. Tambahkan Tugas")
+elif user_input == 2:
+    print("2. Lihat Tugas")
+elif user_input == 3:
+    print("3. Hapus Tugas")
+elif user_input == 4:
+    print("4. Keluar")
+else:
+    print("Pilihan Tidak Ada")
 
 tugas = []
 nama = input("Masukkan Nama Anda : ")
