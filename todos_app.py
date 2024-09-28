@@ -22,23 +22,26 @@ elif user_input == 4:
     print("4. Keluar")
 else:
     print("Pilihan Tidak Ada")
-    exit()
 
-tugas = []
 nama = input("Masukkan Nama Anda : ")
-while True:
+tugas = []
+def data():
     todo = input(f"Masukkan Tugas: ")
-    tugas.append(todo) 
-    if todo == "stop":
-#jumlah = int(input("Masukkan Jumlah Tugas : "))
-#for i in range(0, jumlah):
- #   todo = input(f"Masukkan Tugas: ")
-  #  tugas.append(todo) ***  
-        print(f"Selamat datang {nama}, ada memiliki beberapa kegiatan yaitu : {tugas}, tugas anda sebanyak : {len(tugas)}")
-        exit_ = input("Apakah anda ingin keluar ? (y/n) : ")
-        if exit_ == "y":
-            print("Terimakasih")
-            break
-        else:
-          print("Tambahkan tugas dan ketik stop jika ingin berhenti")
-        
+    while todo.lower() != "stop":
+        tugas.append(todo) 
+        todo = input(f"Masukkan Tugas: ")
+def tampil():
+    print(f"Selamat datang {nama}, ada memiliki beberapa kegiatan yaitu : {tugas}, tugas anda sebanyak : {len(tugas)}")
+
+data()
+tampil() 
+exit_ = input("Apakah anda ingin keluar (y/n) : ")
+if exit_ == 'y':
+    print("Terima Kasih")
+    exit()
+else:
+    print("Data akan di ulang")
+    data()
+    tampil()
+
+   
