@@ -1,5 +1,7 @@
-try:
-    number = 10/2
-except ZeroDivisionError:
-    print("Tidak boleh dibagi 0")
-print("oke")
+def error():
+ while True:
+    try:
+     user_input = int(input("Masukkan Pilihan : "))
+     break
+    except ValueError:
+        print("Inputan harus berupa angka")  
