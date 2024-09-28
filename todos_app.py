@@ -10,9 +10,12 @@ while True:
     user_input = int(input("Masukkan Pilihan : "))
     break
  except ValueError:
-    print("Inputan harus berupa angka")
-    
-if user_input == 1:
+    print("Inputan harus berupa angka")  
+
+if user_input > 4:
+    while user_input > 4:
+        user_input = int(input("Masukkan Pilihan : "))
+elif user_input == 1:
     print("1. Tambahkan Tugas")
 elif user_input == 2:
     print("2. Lihat Tugas")
@@ -20,8 +23,8 @@ elif user_input == 3:
     print("3. Hapus Tugas")
 elif user_input == 4:
     print("4. Keluar")
-else:
-    print("Pilihan Tidak Ada")
+
+    
 
 nama = input("Masukkan Nama Anda : ")
 tugas = []
@@ -40,7 +43,7 @@ if exit_ == 'y':
     print("Terima Kasih")
     exit()
 else:
-    print("Data akan di ulang")
+    print("Silahkan tambahkan tugas anda: ")
     data()
     tampil()
 
