@@ -44,15 +44,21 @@ def user_menu(user_input):
         print("4. Keluar")
         keluar()
 def data():
-    todo = ""
+    todo = input(f"Masukkan Tugas: ")
     global tugas
     tugas = []
     while todo.lower() != "stop":
         tugas.append(todo)
         todo = input(f"Masukkan Tugas: ")
     return menu(), user_input_cek(), tampil()
+
 def tampil():
-    print(f"Selamat datang {fullname}, ada memiliki beberapa kegiatan yaitu : {tugas}, tugas anda sebanyak : {len(tugas)}")
+        print(f"Selamat Datang {fullname}, tugas Anda adalah:")
+        num = 1 
+        for i in tugas:
+            print(f"{num}.{i}")
+            num += 1
+        print(f"Jumlah, tugas anda sebanyak : {len(tugas)}")
 def keluar():    
     exit_ = input("Apakah anda ingin keluar (y/n) : ")
     if exit_ == 'y':
