@@ -31,6 +31,12 @@ def user_menu(user_input):
         data()
     elif user_input == 2:
         print("2. Lihat Tugas")
+        print("Masukkan tugas anda terlebih dahulu")
+        try:
+            if user_input == 2:
+                return data()
+        except NameError:
+            print("Masukkan tugas anda terlebih dahulu")           
         tampil()
     elif user_input == 3:
         print("3. Hapus Tugas")
