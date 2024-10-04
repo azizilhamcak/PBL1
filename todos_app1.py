@@ -1,87 +1,87 @@
 def name():
     print("-------------------")
-    print("APLIKASI TO-DO LIST")
+    print("TO-DO LIST APP")
     print("-------------------\n")
-    nama = input("Masukkan Nama Depan : ")
-    nama1 = input("Masukkan Nama Belakang : ")
-    return f"{nama} {nama1}"
+    name1 = input("First Name : ")
+    name11 = input("Last Name : ")
+    return f"{name1} {name11}"
 
-def tampilnama(fullname):
-    print(f"\n Selamat Datang {fullname} \n") 
+def displayname(fullname):
+    print(f"\n Welcome {fullname} \n") 
 
 fullname = name()
-tampilnama(fullname)
+displayname(fullname)
    
 def menu():
-    print("1. Tambahkan Tugas")
-    print("2. Lihat Tugas")
-    print("3. Hapus Tugas")
-    print("4. Keluar")
+    print("1. Add Task")
+    print("2. Show Task")
+    print("3. Delete Task")
+    print("4. Exit")
 
 def data():
-    todo = input(f"Masukkan Tugas: ")
+    todo = input(f"Insert Task: ")
     while todo.lower() != "stop":
-        tugas.append(todo)
-        todo = input(f"Masukkan Tugas: ")
+        task.append(todo)
+        todo = input(f"Insert task: ")
         
 
-def hapus():
-    tugas_hapus = int(input("Hapus Tugas ke : ")) - 1
-    tugas.pop(tugas_hapus)
+def delete():
+    task_delete = int(input("delete task number: ")) - 1
+    task.pop(task_delete)
     return main()
     
 
-def tampil():
-        #print(f"Selamat Datang {fullname}, tugas Anda adalah:")
+def display():
+        #print(f"Selamat Datang {fullname}, task Anda adalah:")
         num = 1
-        print(f"Berikut tugas Anda:")
-        for i in tugas:
+        print(f"There are your tasks:")
+        for i in task:
             print(f"{num}.{i}")
             num += 1
-        print(f"Halo {fullname}, jumlah tugas anda sebanyak : {len(tugas)}\n")
+        print(f"Hello {fullname}, you have: {len(task)} tasks\n")
         return main()
 
-def keluar():    
-    exit_ = input("Apakah anda ingin keluar (y/n) : ")
+def _exit():    
+    exit_ = input("Do you want to exit (y/n) : ")
     if exit_ == 'y':
-        print("Terima Kasih")
+        print("Thank you :)")
         exit()
     else:
-        print("Silahkan tambahkan tugas anda: ")
+        print("Please add your task: ")
         data()
-        tampil()
+        display()
 
      
 def main():
     menu()
     try:
-            user_input = int(input("Masukkan Pilihan : "))
+            user_input = int(input("Insert your choice : "))
             if user_input == 4:
-                keluar()
+             _exit()
             if user_input in [1,2,3]:
                 if user_input == 1:
-                    #print("1. Tambahkan Tugas")
+                    #print("1. Tambahkan task")
                     data()
                     main()
                 elif user_input == 2:
-                    tampil()
+                    display()
                     try:
-                     if not tugas:
-                        print("Belum ada tugas\n")
+                     if not task:
+                        print("No tasks, please add your task\n")
                         return main()
                     except NameError:
-                        print("Masukkan tugas anda terlebih dahulu")          
+                        print("No tasks, please add your task")          
                 elif user_input == 3:
-                    if not tugas:
-                        print("Belum ada tugas")
+                    if not task:
+                        print("No tasks, please add your task")
                         return main()
                     else:
-                     hapus()
+                     delete()
     except ValueError:
-        print("Inputan harus berupa angka")
+        print("Input must be a number")
 
 
 if __name__ == "__main__":
  user_input = int
- tugas = []
+ task = []
  main()
