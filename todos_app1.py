@@ -1,5 +1,3 @@
-user_input = int
-tugas = []
 def name():
     print("-------------------")
     print("APLIKASI TO-DO LIST")
@@ -30,6 +28,7 @@ def data():
 def hapus():
     tugas_hapus = int(input("Hapus Tugas ke : ")) - 1
     tugas.pop(tugas_hapus)
+    return main()
     
 
 def tampil():
@@ -40,7 +39,7 @@ def tampil():
             print(f"{num}.{i}")
             num += 1
         print(f"Halo {fullname}, jumlah tugas anda sebanyak : {len(tugas)}\n")
-        
+        return main()
 
 def keluar():    
     exit_ = input("Apakah anda ingin keluar (y/n) : ")
@@ -54,7 +53,6 @@ def keluar():
 
      
 def main():
-  while True:
     menu()
     try:
             user_input = int(input("Masukkan Pilihan : "))
@@ -64,6 +62,7 @@ def main():
                 if user_input == 1:
                     #print("1. Tambahkan Tugas")
                     data()
+                    main()
                 elif user_input == 2:
                     tampil()
                     try:
@@ -83,4 +82,6 @@ def main():
 
 
 if __name__ == "__main__":
+ user_input = int
+ tugas = []
  main()
