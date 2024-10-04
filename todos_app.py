@@ -27,26 +27,25 @@ def user_input_cek():
              print("Pilihan Tidak Tersedia")
      except ValueError:
            print("Inputan harus berupa angka")
-def user_menu():
-    if user_input == 1:
+def user_menu(user_input):
+     match user_input:
+      case 1:
         print("1. Tambahkan Tugas")
         data()
-    elif user_input == 2:
+      case 2:
         print("2. Lihat Tugas")
         print("Masukkan tugas anda terlebih dahulu")
         try:
             if user_input == 2:
-                return data()
+             return data()
         except NameError:
             print("Masukkan tugas anda terlebih dahulu")           
-        tampil()
-        user_input_cek()
-    elif user_input == 3:
-        hapus()
-        user_input_cek()
-    elif user_input == 4:
-        keluar()
-        print("4. Apakah Anda yakin akan keluar ?")
+            tampil()
+      case 3:
+            hapus()
+      case 4:
+            keluar()
+            print("4. Apakah Anda yakin akan keluar ?")
 
 
 def data():
@@ -86,10 +85,11 @@ fullname = name()
 tampilnama(fullname)
 menu()
 user_input_cek()
-user_menu()
+user_menu(user_input)
 data()
 tampil()
 hapus()
+tampil()
 keluar() 
 #user_input = user_input_cek()
 #user_menu(user_input)
