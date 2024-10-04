@@ -66,7 +66,6 @@ def main():
                     data()
                 elif user_input == 2:
                     tampil()
-                    print("2. Lihat Tugas")
                     try:
                      if not tugas:
                         print("Belum ada tugas\n")
