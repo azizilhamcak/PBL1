@@ -8,13 +8,17 @@ ktp = {"Namalengkap":"Jajang Miharja",
        "alamat" : {"Jalan" : "Jl. Raya Cibiru",
                    "Kecamatan" : "Cibiru",
                    "Kota" : "Bandung",
-                   "Provinsi" : "Jawa Barat"}}
+                   "Provinsi" : "Jawa Barat"},
+       "Hobi" : ["baca", "makan", "tidur"]}
 
 
 ala = ktp.get("alamat").get("Kecamatan")
 ala1 = (ktp.get("alamat")["Kecamatan"])
 
 ktp["NIK"] = 67890345
-ktp["Jenis_kelamin"] = "Perempuan"
+ktp["Jenis_kelamin"] = "Laki-laki"
+ktp["alamat"]["Kecamatan"] = "Ciwideuw"
 
+new_hobi = "menulis"
+ktp["Hobi"].append(new_hobi)
 print(ktp)

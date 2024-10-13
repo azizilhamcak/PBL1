@@ -1,3 +1,4 @@
+import json
 def name():
     print("-------------------")
     print("TO-DO LIST APP")
@@ -45,6 +46,9 @@ def _exit():
     exit_ = input("Do you want to exit (y/n) : ")
     if exit_ == 'y':
         print("Thank you :)")
+        d = {"Task": task}
+        with open("todos.json", "w") as file:
+            json.dump(d, file)
         exit()
     else:
         print("Please add your task: ")
