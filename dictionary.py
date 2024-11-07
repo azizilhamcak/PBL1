@@ -21,7 +21,7 @@ def menu():
     print("4. Exit")
 
 def data():
-       n = int(input("Enter number of pairs: "))
+       n = int(input("Enter number of items: "))
        for _ in range(n):
               item_ = input("Enter item_: ")
               price = int(input("Enter price: "))
@@ -36,15 +36,16 @@ def delete():
 
 def display():
         #print(f"Selamat Datang {fullname}, task Anda adalah:")
-        num = 1
-        print(f"There are your items:")
-        for i in key_value_list:
-            print(f"{num}.{i}")
-            num += 1
-        print(f"Hello {fullname}, you have: {len(key_value_list)} items\n")
+        # num = 1
+        # print(f"There are your items:")
+        # for i in key_value_list:
+        #     print(f"{num}.{i}")
+        #     num += 1
+        print(f"\n Hello {fullname}, you have: {len(key_value_list)} items\n")
         df = pd.DataFrame(key_value_list)
         df.index += 1
         print(df)
+        print("\n")
         return main()
 
 def _exit():    
@@ -76,13 +77,13 @@ def main():
                     display()
                     try:
                      if not key_value_list:
-                        print("No tasks, please add your task\n")
+                        print("No item added, please add your items\n")
                         return main()
                     except NameError:
-                        print("No tasks, please add your task")          
+                        print("No item added, please add your items")          
                 elif user_input == 3:
                     if not key_value_list:
-                        print("No tasks, please add your task")
+                        print("No item added, please add your items")
                         return main()
                     else:
                      delete()
