@@ -1,4 +1,6 @@
 import json
+import pandas as pd
+
 def name():
     print("-------------------")
     print("TO-DO LIST APP")
@@ -20,33 +22,36 @@ def menu():
     print("4. Exit")
 
 def data():
-    todo = input(f"Insert Task: ")
-    while todo.lower() != "stop":
-        task.append(todo)
-        todo = input(f"Insert task: ")
-        
+    while True:
+        n = int(input("Enter number of tasks: "))
+        for _ in range(n):
+            todo = input(f"Insert Task: ")
+            description = input(f"Description your task: ")
+            isImportant = bool(input(f"Is your task {todo} important 1 or 0: "))
+            notes = input(f"Notes your task: ")
+            todos.append({"task": todo, "description": description, "isImportant": isImportant, "notes": notes})
+        return menu()
 
 def delete():
     task_delete = int(input("delete task number: ")) - 1
-    task.pop(task_delete)
+    todos.pop(task_delete)
     return main()
     
 
 def display():
         #print(f"Selamat Datang {fullname}, task Anda adalah:")
-        num = 1
-        print(f"There are your tasks:")
-        for i in task:
-            print(f"{num}.{i}")
-            num += 1
-        print(f"Hello {fullname}, you have: {len(task)} tasks\n")
+        print(f"Hello {fullname}, you have: {len(todos)} tasks\n")
+        df = pd.DataFrame(todos)
+        df.index += 1
+        print(df)
+        print("\n")
         return main()
 
 def _exit():    
     exit_ = input("Do you want to exit (y/n) : ")
     if exit_ == 'y':
         print("Thank you :)")
-        d = {"Task": task}
+        d = {"Task": todos}
         with open("todos.json", "w") as file:
             json.dump(d, file)
         exit()
@@ -58,34 +63,36 @@ def _exit():
      
 def main():
     menu()
-    try:
-            user_input = int(input("Insert your choice : "))
-            if user_input == 4:
-             _exit()
-            if user_input in [1,2,3]:
-                if user_input == 1:
-                    #print("1. Tambahkan task")
-                    data()
-                    main()
-                elif user_input == 2:
-                    display()
-                    try:
-                     if not task:
-                        print("No tasks, please add your task\n")
-                        return main()
-                    except NameError:
-                        print("No tasks, please add your task")          
-                elif user_input == 3:
-                    if not task:
-                        print("No tasks, please add your task")
-                        return main()
-                    else:
-                     delete()
-    except ValueError:
-        print("Input must be a number")
-
+    while True:
+        try:
+                user_input = int(input("Insert your choice : "))
+                if user_input == 4:
+                    _exit()
+                    break
+                if user_input in [1,2,3]:
+                    if user_input == 1:
+                        #print("1. Tambahkan task")
+                        data()
+                    elif user_input == 2:
+                        display()
+                        try:
+                            if not todos:
+                                print("No tasks, please add your task\n")
+                                #return main()
+                        except NameError:
+                                print("No tasks, please add your task")          
+                    elif user_input == 3:
+                        if not todos:
+                            print("No tasks, please add your task")
+                            #return main()
+                        else:
+                            delete()
+        except ValueError:
+            print("Input must be a number")
+            continue
 
 if __name__ == "__main__":
  user_input = int
- task = []
+ todos = []
  main()
+ 
