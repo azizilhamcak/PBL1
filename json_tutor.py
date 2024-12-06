@@ -1,10 +1,21 @@
 import json
 
-with open('data.json', 'r') as file:
-    data = json.load(file)
-#print(data, type(data))
-#print(data['members'])
+def save_data(filename):
+    with open(filename, 'r') as file:
+        data = json.load(file)
+    return data
+    
 
-data1 = {"todos": ["task1", "task2", "task3"]}
-with open('data2.json', 'w') as file:
-    json.dump(data1, file)
+def login(db):
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+    if username in db and db[username]['password'] == password:
+        print("Login Successful")
+        return db[username]
+    else:
+        print("Login Failed")
+
+if __name__ == "__main__":
+    db = save_data('data.json')
+    login(db)
+    

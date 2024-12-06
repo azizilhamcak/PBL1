@@ -27,7 +27,11 @@ def data():
         for _ in range(n):
             todo = input(f"Insert Task: ")
             description = input(f"Description your task: ")
-            isImportant = bool(input(f"Is your task {todo} important 1 or 0: "))
+            isImportant = input(f"Is your task {todo} important 1 or 0: ")
+            if isImportant == "1":
+                isImportant = True
+            elif isImportant == "0":
+                isImportant = False
             notes = input(f"Notes your task: ")
             todos.append({"task": todo, "description": description, "isImportant": isImportant, "notes": notes})
         return menu()
@@ -39,21 +43,26 @@ def delete():
     
 
 def display():
-        #print(f"Selamat Datang {fullname}, task Anda adalah:")
-        print(f"Hello {fullname}, you have: {len(todos)} tasks\n")
-        df = pd.DataFrame(todos)
-        df.index += 1
-        print(df)
-        print("\n")
-        return main()
+    #print(f"Selamat Datang {fullname}, task Anda adalah:")
+    print(f"Hello {fullname}, you have: {len(todos)} tasks\n")
+    df = pd.DataFrame(todos)
+    df.index += 1
+    print(df)
+    print("\n")
+    return main()
 
+def save_data():
+    d = {"Task": todos}
+    with open("todos.json", "r") as file:
+        ex_data = json.load(file)
+        ex_data["Task"].extend(d["Task"])
+    with open("todos.json", "w") as file:
+        json.dump(ex_data, file, indent=4)
+                           
 def _exit():    
     exit_ = input("Do you want to exit (y/n) : ")
     if exit_ == 'y':
-        print("Thank you :)")
-        d = {"Task": todos}
-        with open("todos.json", "w") as file:
-            json.dump(d, file)
+        save_data()
         exit()
     else:
         print("Please add your task: ")

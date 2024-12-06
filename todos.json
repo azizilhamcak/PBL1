@@ -1,1 +1,46 @@
-{"Task": [{"task": "Read", "description": "Novel", "isImportant": true, "notes": "Read 10 mnt"}, {"task": "Summary", "description": "Summary novel", "isImportant": true, "notes": "Minimium 100 word"}]}
+{
+    "Task": [
+        {
+            "task": "read",
+            "description": "novel",
+            "isImportant": true,
+            "notes": "read 1 book "
+        },
+        {
+            "task": "review",
+            "description": "review novel",
+            "isImportant": false,
+            "notes": "review one novel"
+        },
+        {
+            "task": "buy new books",
+            "description": "if finished novel before",
+            "isImportant": false,
+            "notes": "just self reward"
+        },
+        {
+            "task": "Running",
+            "description": "Sub 21 5km",
+            "isImportant": true,
+            "notes": "Keep Breath!"
+        },
+        {
+            "task": "Relax",
+            "description": "Take a rest 10 mnt",
+            "isImportant": true,
+            "notes": "Keep to hydrated"
+        },
+        {
+            "task": "Eat",
+            "description": "Eat food Healty",
+            "isImportant": true,
+            "notes": "dont eat seblak"
+        },
+        {
+            "task": "Meeting",
+            "description": "Meeting with Cv. karya bakti",
+            "isImportant": true,
+            "notes": "at kopijiwa 10pm"
+        }
+    ]
+}
